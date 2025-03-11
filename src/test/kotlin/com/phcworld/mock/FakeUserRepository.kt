@@ -2,7 +2,9 @@ package com.phcworld.mock
 
 import com.phcworld.user.domain.User
 import com.phcworld.user.service.port.UserRepository
+import java.util.*
 import java.util.concurrent.atomic.AtomicLong
+import kotlin.collections.ArrayList
 
 class FakeUserRepository: UserRepository {
 
@@ -19,5 +21,9 @@ class FakeUserRepository: UserRepository {
             data.add(user)
             return user
         }
+    }
+
+    override fun findById(id: Long): Optional<User> {
+        return data.firstOrNull { it.id == id }?.let { Optional.of(it) } ?: Optional.empty()
     }
 }

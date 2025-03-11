@@ -5,4 +5,6 @@ import com.phcworld.user.domain.UserRequest
 
 interface UserService {
     fun registerUser(request: UserRequest): User
+
+    fun getUser(id: Long): User
 }

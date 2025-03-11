@@ -3,6 +3,7 @@ package com.phcworld.user.infrastructure
 import com.phcworld.user.domain.User
 import com.phcworld.user.service.port.UserRepository
 import org.springframework.stereotype.Repository
+import java.util.*
 
 @Repository
 class UserRepositoryImpl(
@@ -11,5 +12,9 @@ class UserRepositoryImpl(
 
     override fun registerUser(user: User): User {
         return userEntityRepository.save(UserEntity.from(user)).toModel()
+    }
+
+    override fun findById(id: Long): Optional<User> {
+        return userEntityRepository.findById(id).map {  it.toModel() }
     }
 }
