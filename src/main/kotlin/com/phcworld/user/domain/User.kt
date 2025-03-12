@@ -10,7 +10,7 @@ class User(
     val id: Long? = null
 ) {
     companion object {
-        fun from(request: UserRequest): User {
+        fun from(request: UserCreateRequest): User {
             return User(request.email, request.password, request.name)
         }
     }

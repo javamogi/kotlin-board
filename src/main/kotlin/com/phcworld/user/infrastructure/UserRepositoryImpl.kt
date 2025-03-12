@@ -17,4 +17,8 @@ class UserRepositoryImpl(
     override fun findById(id: Long): Optional<User> {
         return userEntityRepository.findById(id).map {  it.toModel() }
     }
+
+    override fun findByEmail(email: String): Optional<User> {
+        return userEntityRepository.findByEmail(email).map {  it.toModel() }
+    }
 }

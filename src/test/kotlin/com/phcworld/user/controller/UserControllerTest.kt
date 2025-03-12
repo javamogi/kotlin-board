@@ -1,7 +1,7 @@
 package com.phcworld.user.controller
 
 import com.phcworld.mock.TestContainer
-import com.phcworld.user.domain.UserRequest
+import com.phcworld.user.domain.UserCreateRequest
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
@@ -13,7 +13,7 @@ class UserControllerTest {
  fun registerUser() {
   // given
   val testContainer: TestContainer = TestContainer()
-  val request = UserRequest("test@test.test", "test1234", "테스트")
+  val request = UserCreateRequest("test@test.test", "test1234", "테스트")
 
   // when
   val user = testContainer.userController.registerUser(request)

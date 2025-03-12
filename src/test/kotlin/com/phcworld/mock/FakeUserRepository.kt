@@ -26,4 +26,8 @@ class FakeUserRepository: UserRepository {
     override fun findById(id: Long): Optional<User> {
         return data.firstOrNull { it.id == id }?.let { Optional.of(it) } ?: Optional.empty()
     }
+
+    override fun findByEmail(email: String): Optional<User> {
+        return data.firstOrNull { it.email == email }?.let { Optional.of(it) } ?: Optional.empty()
+    }
 }
